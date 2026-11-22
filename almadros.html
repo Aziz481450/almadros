@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Café Lamadros — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#c4201b;--bg2:#7d1210;--ink:#fff3e4;--mute:#ffd2b8;--line:rgba(255,243,228,.28);--glass:rgba(255,243,228,.08);--btn:#fff3e4;--btnink:#8f1511;--gold:#ffc27a;
+--serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"Inter",system-ui,-apple-system,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#a81b17;--bg2:#4a0907;--glass:rgba(255,243,228,.06)}}
+:root[data-theme="dark"]{--bg:#a81b17;--bg2:#4a0907;--glass:rgba(255,243,228,.06)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--sans);background:radial-gradient(90% 70% at 75% 10%,var(--bg),var(--bg2) 85%) fixed;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+.logo{font:italic 400 1.5rem var(--serif);letter-spacing:.01em}
+.logo i{font-style:normal;color:var(--gold)}
+.pill{border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:.85rem;text-decoration:none;backdrop-filter:blur(8px);background:var(--glass);transition:.25s}
+.pill:hover{background:var(--ink);color:var(--btnink)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding:30px 0 60px}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.eyebrow::before{content:"";width:42px;height:1px;background:var(--gold)}
+h1{font:400 clamp(3.4rem,9vw,7.2rem)/.9 var(--serif);letter-spacing:-.035em;margin:0 0 26px;font-variation-settings:"opsz" 144}
+h1 em{display:block;color:var(--gold);font-weight:400}
+.lead{max-width:430px;color:var(--mute);line-height:1.65;font-size:1.05rem;margin:0 0 34px}
+form{display:flex;gap:6px;max-width:460px;padding:6px;border:1px solid var(--line);border-radius:999px;background:var(--glass);backdrop-filter:blur(10px)}
+input{flex:1;min-width:0;padding:0 20px;border:0;background:transparent;color:var(--ink);font:500 1rem var(--sans);outline:none}
+input::placeholder{color:var(--mute);opacity:.8}
+button{border:0;border-radius:999px;padding:15px 26px;background:var(--btn);color:var(--btnink);font:600 .95rem var(--sans);cursor:pointer;transition:transform .2s}
+button:hover{transform:scale(1.04)}
+.msg{min-height:1.6em;margin:16px 6px 0;color:var(--mute);font-size:.95rem}
+.stage{position:relative;height:520px;display:grid;place-items:center}
+.halo{position:absolute;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(255,194,122,.35),transparent 65%);filter:blur(10px)}
+.ring{position:absolute;bottom:92px;left:50%;width:260px;height:56px;margin-left:-130px;border:2px solid var(--gold);border-radius:50%;opacity:0}
+.ring.go{animation:ripple 1.1s .85s ease-out}
+@keyframes ripple{0%{opacity:.9;transform:scale(.5)}100%{opacity:0;transform:scale(1.9)}}
+.shadow{position:absolute;bottom:88px;left:50%;width:230px;height:26px;margin-left:-115px;border-radius:50%;background:#000;filter:blur(12px);opacity:.25;transform:scale(.7);transition:all .85s ease-in}
+.shadow.on{opacity:.55;transform:scale(1.15)}
+.cup{position:absolute;top:30px;left:50%;width:310px;margin-left:-155px;filter:drop-shadow(0 30px 30px rgba(0,0,0,.3));animation:float 4s ease-in-out infinite;will-change:transform}
+.cup.drop{animation:drop .85s cubic-bezier(.55,0,.95,.45) forwards,thud .6s .85s ease-out forwards}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-18px) rotate(4deg)}}
+@keyframes drop{from{transform:translateY(0) rotate(-4deg)}to{transform:translateY(120px) rotate(0)}}
+@keyframes thud{0%{transform:translateY(120px) scale(1.1,.86)}35%{transform:translateY(98px) scale(.97,1.04)}65%{transform:translateY(120px) scale(1.02,.98)}100%{transform:translateY(120px)}}
+.steam path{fill:none;stroke:#fff3e4;stroke-width:5;stroke-linecap:round;opacity:0;animation:steam 3s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.9s}.steam path:nth-child(3){animation-delay:1.8s}
+@keyframes steam{0%{opacity:0;transform:translateY(14px)}40%{opacity:.5}100%{opacity:0;transform:translateY(-22px)}}
+.nm{font:italic 700 30px var(--serif);fill:#8f1511;opacity:0}
+.cup.drop .nm{animation:fade .6s 1s forwards}
+@keyframes fade{to{opacity:1}}
+.strip{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:18px 0;background:var(--glass)}
+.strip div{display:inline-block;animation:slide 28s linear infinite;font:italic 400 2rem var(--serif)}
+.strip span{margin:0 26px}.strip b{color:var(--gold);font-weight:400}
+@keyframes slide{to{transform:translateX(-50%)}}
+.menu{padding:90px 0 40px}
+.menu h2{font:400 clamp(2.2rem,5vw,3.6rem)/1 var(--serif);margin:0 0 50px;letter-spacing:-.02em}
+.menu h2 em{color:var(--gold)}
+.row{display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:20px;padding:30px 18px;border-top:1px solid var(--line);transition:.35s;border-radius:6px}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row:hover{background:var(--glass);padding-left:34px}
+.num{font:italic 400 1.1rem var(--serif);color:var(--gold)}
+.row h3{margin:0;font:400 clamp(1.7rem,4vw,2.8rem)/1.1 var(--serif);letter-spacing:-.02em}
+.row p{margin:6px 0 0;color:var(--mute);font-size:.92rem}
+.price{font:400 clamp(1.6rem,3.5vw,2.6rem) var(--serif);white-space:nowrap}
+.price small{font:600 .7rem var(--sans);letter-spacing:.2em;color:var(--gold);margin-left:6px}
+footer{padding:70px 0 50px;text-align:center}
+footer h2{font:italic 400 clamp(2rem,5vw,3.4rem)/1.1 var(--serif);margin:0 0 28px}
+.cta{display:inline-block;background:var(--btn);color:var(--btnink);padding:18px 34px;border-radius:999px;font-weight:600;text-decoration:none;transition:.25s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+footer small{display:block;margin-top:40px;color:var(--mute);opacity:.7}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.stage{height:440px}.cup{width:250px;margin-left:-125px}.row{grid-template-columns:44px 1fr auto;gap:12px;padding:24px 8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.nm{opacity:1}}
+
+.menu .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{position:relative;border:1px solid var(--line);border-radius:26px;background:linear-gradient(160deg,var(--glass),transparent);overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.card:hover{transform:translateY(-10px);border-color:var(--gold)}
+.pic{position:relative;aspect-ratio:1;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,rgba(255,194,122,.3),transparent 68%)}
+.pic svg{width:86%;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover .pic svg{transform:scale(1.07) rotate(-5deg)}
+.card .num{position:absolute;top:18px;left:20px}
+.info{padding:6px 24px 26px}
+.info h3{margin:0;font:400 1.7rem/1.1 var(--serif);letter-spacing:-.02em}
+.info p{margin:8px 0 18px;color:var(--mute);font-size:.9rem;line-height:1.5;min-height:2.7em}
+.info .price{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--line);padding-top:16px;font-size:2rem}
+@media(max-width:1020px){.menu .grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu .grid{grid-template-columns:1fr}}
+
+.wifi{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;margin:60px 0 0;padding:34px 38px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(120deg,var(--glass),transparent);backdrop-filter:blur(10px)}
+.wifi .ic{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:var(--btn);color:var(--btnink)}
+.wifi h3{margin:0 0 4px;font:400 2rem/1.1 var(--serif)}
+.wifi h3 em{color:var(--gold)}
+.wifi p{margin:0;color:var(--mute);font-size:.9rem}
+.creds{display:grid;gap:10px;min-width:280px}
+.cred{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 18px;border:1px dashed var(--line);border-radius:14px;font:500 1rem ui-monospace,Menlo,Consolas,monospace}
+.cred span{font:600 .65rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cp{padding:7px 14px;font-size:.78rem}
+@media(max-width:860px){.wifi{grid-template-columns:1fr;padding:28px 22px;text-align:center}.wifi .ic{margin:auto}.creds{min-width:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="logo">Lamadros<i>.</i></div>
+  <a class="pill" href="https://www.google.com/maps/place/Caf%C3%A9+lamadros/@36.7878258,10.1736381,20z/data=!4m14!1m7!3m6!1s0x12fd350076118e97:0x7b69eba9d55b5546!2sCaf%C3%A9+lamadros!8m2!3d36.7877367!4d10.173441!16s%2Fg%2F11_0gxvlqk!3m5!1s0x12fd350076118e97:0x7b69eba9d55b5546!8m2!3d36.7877367!4d10.173441!16s%2Fg%2F11_0gxvlqk?hl=fr" target="_blank" rel="noopener">Itinéraire ↗</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">Café · Tunis</div>
+    <h1>Café<em>Lamadros</em></h1>
+    <p class="lead">Un lieu simple, un café bien tiré. Dites-nous votre prénom et votre tasse se pose, à votre nom.</p>
+    <form id="f">
+      <input id="n" maxlength="12" placeholder="Votre prénom" autocomplete="given-name" aria-label="Votre prénom" required>
+      <button type="submit">Ma tasse</button>
+    </form>
+    <p class="msg" id="m"></p>
+  </div>
+  <div class="stage" id="stage">
+    <div class="halo"></div>
+    <div class="shadow" id="sh"></div>
+    <div class="ring" id="ring"></div>
+    <svg class="cup" id="cup" viewBox="0 0 320 300" aria-label="Tasse de café">
+      <defs>
+        <linearGradient id="p" x1="0" x2="1"><stop offset="0" stop-color="#d8c6ae"/><stop offset=".28" stop-color="#fffaf1"/><stop offset=".62" stop-color="#fff"/><stop offset="1" stop-color="#cdb99f"/></linearGradient>
+        <radialGradient id="c" cx=".4" cy=".3"><stop offset="0" stop-color="#9a5a32"/><stop offset="1" stop-color="#2e140a"/></radialGradient>
+      </defs>
+      <g class="steam"><path d="M125 70c-16-18 16-30 0-52"/><path d="M160 66c-16-18 16-30 0-52"/><path d="M195 70c-16-18 16-30 0-52"/></g>
+      <path d="M232 112h26a34 34 0 0 1 0 68h-40" fill="none" stroke="url(#p)" stroke-width="15" stroke-linecap="round"/>
+      <path d="M62 104h176v70a88 88 0 0 1-176 0z" fill="url(#p)"/>
+      <ellipse cx="150" cy="104" rx="88" ry="17" fill="#f1e6d3"/>
+      <ellipse cx="150" cy="106" rx="78" ry="13" fill="url(#c)"/>
+      <ellipse cx="150" cy="104" rx="30" ry="4" fill="#d9a56e" opacity=".6"/>
+      <path d="M62 150h176v34H62z" fill="#c4201b" opacity=".1"/>
+      <text class="nm" id="nm" x="150" y="178" text-anchor="middle"></text>
+      <path d="M78 122q-4 54 22 100" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".75"/>
+      <ellipse cx="150" cy="268" rx="124" ry="20" fill="url(#p)"/>
+      <ellipse cx="150" cy="262" rx="76" ry="10" fill="#e5d6c0"/>
+    </svg>
+  </div>
+</header>
+</div>
+
+<div class="strip" aria-hidden="true"><div>
+<span>Express</span><b>✦</b><span>Cappuccino</span><b>✦</b><span>Direct</span><b>✦</b><span>Eau minérale</span><b>✦</b><span>Chicha</span><b>✦</b>
+<span>Express</span><b>✦</b><span>Cappuccino</span><b>✦</b><span>Direct</span><b>✦</b><span>Eau minérale</span><b>✦</b><span>Chicha</span><b>✦</b>
+<span>Express</span><b>✦</b><span>Cappuccino</span><b>✦</b><span>Direct</span><b>✦</b><span>Eau minérale</span><b>✦</b><span>Chicha</span><b>✦</b>
+<span>Express</span><b>✦</b><span>Cappuccino</span><b>✦</b><span>Direct</span><b>✦</b><span>Eau minérale</span><b>✦</b><span>Chicha</span><b>✦</b>
+</div></div>
+
+<div class="wrap">
+<section class="menu" id="menu"><h2>Notre <em>carte</em></h2><div class="grid"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<radialGradient id="plate" cx=".4" cy=".35"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#d9c6ab"/></radialGradient>
+<radialGradient id="cupw" cx=".4" cy=".35"><stop offset="0" stop-color="#fff"/><stop offset=".8" stop-color="#efe3d0"/><stop offset="1" stop-color="#cdb99b"/></radialGradient>
+<radialGradient id="esp" cx=".4" cy=".35"><stop offset="0" stop-color="#b9783f"/><stop offset=".55" stop-color="#6b3418"/><stop offset="1" stop-color="#2b1208"/></radialGradient>
+<radialGradient id="foam" cx=".4" cy=".35"><stop offset="0" stop-color="#fbeed8"/><stop offset="1" stop-color="#d9b98e"/></radialGradient>
+<radialGradient id="lat" cx=".4" cy=".35"><stop offset="0" stop-color="#e0b27d"/><stop offset="1" stop-color="#a8703c"/></radialGradient>
+<linearGradient id="wat" x1="0" x2="1"><stop offset="0" stop-color="#9fd8ee"/><stop offset=".45" stop-color="#e9f8ff"/><stop offset="1" stop-color="#7cc3e0"/></linearGradient>
+</defs></svg><article class="card"><div class="pic"><span class="num">01</span><svg viewBox="0 0 200 200" aria-label="Café express"><circle cx="100" cy="100" r="92" fill="url(#plate)"/><circle cx="100" cy="100" r="82" fill="none" stroke="#c9b394" stroke-width="1.5" opacity=".6"/><rect x="140" y="92" width="34" height="16" rx="8" fill="url(#cupw)"/><circle cx="100" cy="100" r="46" fill="url(#cupw)"/><circle cx="100" cy="100" r="41" fill="none" stroke="#bfa98a" stroke-width="2" opacity=".5"/><circle cx="100" cy="100" r="36" fill="url(#esp)"/><path d="M80 94c10-14 34-14 42-2M84 112c14 10 28 8 36-2" fill="none" stroke="#e2b27a" stroke-width="3" stroke-linecap="round" opacity=".6"/><ellipse cx="88" cy="88" rx="9" ry="4" fill="#fff" opacity=".25"/></svg></div><div class="info"><h3>Café express</h3><p>Court, intense, tiré à la minute.</p><div class="price">1.700<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">02</span><svg viewBox="0 0 200 200" aria-label="Cappuccino"><circle cx="100" cy="100" r="92" fill="url(#plate)"/><circle cx="100" cy="100" r="82" fill="none" stroke="#c9b394" stroke-width="1.5" opacity=".6"/><rect x="154" y="92" width="34" height="16" rx="8" fill="url(#cupw)"/><circle cx="100" cy="100" r="60" fill="url(#cupw)"/><circle cx="100" cy="100" r="55" fill="none" stroke="#bfa98a" stroke-width="2" opacity=".5"/><circle cx="100" cy="100" r="50" fill="url(#foam)"/><path d="M100 132c-32-24-26-52 0-40 26-12 32 16 0 40z" fill="#8a5028"/><path d="M100 124c-18-16-16-30 0-24 16-6 18 8 0 24z" fill="#fbeed8"/><ellipse cx="82" cy="78" rx="12" ry="5" fill="#fff" opacity=".35"/></svg></div><div class="info"><h3>Cappuccino</h3><p>Mousse onctueuse et café corsé.</p><div class="price">1.800<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">03</span><svg viewBox="0 0 200 200" aria-label="Café direct"><circle cx="100" cy="100" r="92" fill="url(#plate)"/><circle cx="100" cy="100" r="82" fill="none" stroke="#c9b394" stroke-width="1.5" opacity=".6"/><rect x="148" y="92" width="34" height="16" rx="8" fill="url(#cupw)"/><circle cx="100" cy="100" r="54" fill="url(#cupw)"/><circle cx="100" cy="100" r="49" fill="none" stroke="#bfa98a" stroke-width="2" opacity=".5"/><circle cx="100" cy="100" r="44" fill="url(#lat)"/><path d="M62 96c6-26 40-38 62-24" fill="none" stroke="#fbeed8" stroke-width="7" stroke-linecap="round" opacity=".7"/><circle cx="100" cy="100" r="44" fill="none" stroke="#fff" stroke-width="3" opacity=".5"/><ellipse cx="82" cy="80" rx="11" ry="5" fill="#fff" opacity=".4"/></svg></div><div class="info"><h3>Café direct</h3><p>Le long café, doux et généreux.</p><div class="price">2.000<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">04</span><svg viewBox="0 0 200 200" aria-label="Eau minérale"><ellipse cx="100" cy="186" rx="44" ry="7" fill="#000" opacity=".25"/><rect x="88" y="14" width="24" height="16" rx="4" fill="#1d5f86"/><path d="M90 30h20v16c0 6 22 14 22 34v98a8 8 0 0 1-8 8H76a8 8 0 0 1-8-8V80c0-20 22-28 22-34z" fill="url(#wat)" stroke="#8fc9e2" stroke-width="2"/><rect x="68" y="96" width="64" height="42" fill="#1d5f86"/><text x="100" y="125" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="26" fill="#fff">1 L</text><path d="M78 60v110" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/></svg></div><div class="info"><h3>Eau minérale</h3><p>Bouteille de 1 L, bien fraîche.</p><div class="price">2.000<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">05</span><svg viewBox="0 0 200 200" aria-label="Chicha Love"><ellipse cx="100" cy="188" rx="46" ry="6" fill="#000" opacity=".25"/>
+<path d="M100 34v52" stroke="#c9a15a" stroke-width="7" stroke-linecap="round"/>
+<path d="M82 34h36l-4 14H86z" fill="#e0b873"/><path d="M86 18h28l4 16H82z" fill="#9c6b2c"/><path d="M90 8h20l4 10H86z" fill="#4a4a4a"/>
+<ellipse cx="100" cy="86" rx="30" ry="6" fill="#b8913f"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="#c4333a" opacity=".92"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="url(#plate)" opacity=".28"/>
+<path d="M62 120c-6 18-4 40 8 54" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".6" fill="none"/>
+<path d="M104 126c-4 18 10 24 14 12" fill="none" stroke="#ff9aa5" stroke-width="3" opacity=".0"/>
+<path d="M100 172c-20-14-16-30 0-22 16-8 20 8 0 22z" fill="#fff" opacity=".9"/>
+<path d="M148 130c34 4 38 34 24 48" fill="none" stroke="#2b1b14" stroke-width="5" stroke-linecap="round"/>
+<circle cx="172" cy="180" r="6" fill="#c9a15a"/></svg></div><div class="info"><h3>Chicha Love</h3><p>Saveur douce, fruitée et sucrée.</p><div class="price">3.500<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">06</span><svg viewBox="0 0 200 200" aria-label="Chicha Pomme menthe"><ellipse cx="100" cy="188" rx="46" ry="6" fill="#000" opacity=".25"/>
+<path d="M100 34v52" stroke="#c9a15a" stroke-width="7" stroke-linecap="round"/>
+<path d="M82 34h36l-4 14H86z" fill="#e0b873"/><path d="M86 18h28l4 16H82z" fill="#9c6b2c"/><path d="M90 8h20l4 10H86z" fill="#4a4a4a"/>
+<ellipse cx="100" cy="86" rx="30" ry="6" fill="#b8913f"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="#5aa545" opacity=".92"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="url(#plate)" opacity=".28"/>
+<path d="M62 120c-6 18-4 40 8 54" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".6" fill="none"/>
+<path d="M104 126c-4 18 10 24 14 12" fill="none" stroke="#c5f0a0" stroke-width="3" opacity=".0"/>
+<path d="M100 170c-14 0-18-10-12-18 6-6 10 0 12 0 2 0 6-6 12 0 6 8 2 18-12 18z" fill="#e4f6c8"/><path d="M100 152c0-6 4-10 8-12" stroke="#2f6b2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M148 130c34 4 38 34 24 48" fill="none" stroke="#2b1b14" stroke-width="5" stroke-linecap="round"/>
+<circle cx="172" cy="180" r="6" fill="#c9a15a"/></svg></div><div class="info"><h3>Chicha Pomme menthe</h3><p>Pomme croquante, menthe fraîche.</p><div class="price">3.500<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">07</span><svg viewBox="0 0 200 200" aria-label="Chicha Pomme"><ellipse cx="100" cy="188" rx="46" ry="6" fill="#000" opacity=".25"/>
+<path d="M100 34v52" stroke="#c9a15a" stroke-width="7" stroke-linecap="round"/>
+<path d="M82 34h36l-4 14H86z" fill="#e0b873"/><path d="M86 18h28l4 16H82z" fill="#9c6b2c"/><path d="M90 8h20l4 10H86z" fill="#4a4a4a"/>
+<ellipse cx="100" cy="86" rx="30" ry="6" fill="#b8913f"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="#8fbf3a" opacity=".92"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="url(#plate)" opacity=".28"/>
+<path d="M62 120c-6 18-4 40 8 54" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".6" fill="none"/>
+<path d="M100 172c-14 0-18-10-12-18 6-6 10 0 12 0 2 0 6-6 12 0 6 8 2 18-12 18z" fill="#f3fbd8"/><path d="M100 154c0-6 4-10 8-12" stroke="#2f6b2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M148 130c34 4 38 34 24 48" fill="none" stroke="#2b1b14" stroke-width="5" stroke-linecap="round"/>
+<circle cx="172" cy="180" r="6" fill="#c9a15a"/></svg></div><div class="info"><h3>Chicha Pomme</h3><p>Pomme seule, croquante et douce.</p><div class="price">3.500<small>DT</small></div></div></article><article class="card"><div class="pic"><span class="num">08</span><svg viewBox="0 0 200 200" aria-label="Chicha Menthe"><ellipse cx="100" cy="188" rx="46" ry="6" fill="#000" opacity=".25"/>
+<path d="M100 34v52" stroke="#c9a15a" stroke-width="7" stroke-linecap="round"/>
+<path d="M82 34h36l-4 14H86z" fill="#e0b873"/><path d="M86 18h28l4 16H82z" fill="#9c6b2c"/><path d="M90 8h20l4 10H86z" fill="#4a4a4a"/>
+<ellipse cx="100" cy="86" rx="30" ry="6" fill="#b8913f"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="#1fa896" opacity=".92"/>
+<path d="M100 92c-40 0-52 40-52 64 0 22 22 32 52 32s52-10 52-32c0-24-12-64-52-64z" fill="url(#plate)" opacity=".28"/>
+<path d="M62 120c-6 18-4 40 8 54" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".6" fill="none"/>
+<path d="M100 174c-16-6-16-22 0-30 16 8 16 24 0 30z" fill="#d9fff4"/><path d="M100 144v28" stroke="#1fa896" stroke-width="2"/>
+<path d="M148 130c34 4 38 34 24 48" fill="none" stroke="#2b1b14" stroke-width="5" stroke-linecap="round"/>
+<circle cx="172" cy="180" r="6" fill="#c9a15a"/></svg></div><div class="info"><h3>Chicha Menthe</h3><p>Menthe seule, fraîche et légère.</p><div class="price">3.500<small>DT</small></div></div></article></div></section>
+
+<section class="wifi" id="wifi">
+  <div class="ic"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></div>
+  <div><h3>Wi‑Fi <em>gratuit</em></h3><p>Connectez-vous et profitez de votre café.</p></div>
+  <div class="creds">
+    <div class="cred"><div><span>Réseau</span><br>MAXBOX5G_0780</div><button class="cp" data-c="MAXBOX5G_0780">Copier</button></div>
+    <div class="cred"><div><span>Mot de passe</span><br>6uqvkpuixhyv</div><button class="cp" data-c="6uqvkpuixhyv">Copier</button></div>
+  </div>
+</section>
+
+<footer>
+  <h2>On vous attend.</h2>
+  <a class="cta" href="https://www.google.com/maps/place/Caf%C3%A9+lamadros/@36.7878258,10.1736381,20z/data=!4m14!1m7!3m6!1s0x12fd350076118e97:0x7b69eba9d55b5546!2sCaf%C3%A9+lamadros!8m2!3d36.7877367!4d10.173441!16s%2Fg%2F11_0gxvlqk!3m5!1s0x12fd350076118e97:0x7b69eba9d55b5546!8m2!3d36.7877367!4d10.173441!16s%2Fg%2F11_0gxvlqk?hl=fr" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a>
+  <small>© Café Lamadros</small>
+</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id),cup=$('cup'),stage=$('stage');
+$('f').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=$('n').value.trim(); if(!v) return;
+  $('nm').textContent=v;
+  const r=$('ring');
+  [cup,r].forEach(x=>x.classList.remove('drop','go')); void cup.getBoundingClientRect();
+  cup.classList.add('drop'); r.classList.add('go'); $('sh').classList.add('on');
+  $('m').textContent='Bienvenue '+v+'. Votre café vous attend chez Lamadros.';
+});
+document.querySelectorAll('.cp').forEach(b=>b.addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(b.dataset.c);b.textContent='Copié ✓'}catch(e){b.textContent='Sélectionnez le texte'}
+  setTimeout(()=>b.textContent='Copier',1800)}));
+</script>
+</body>
+</html>
